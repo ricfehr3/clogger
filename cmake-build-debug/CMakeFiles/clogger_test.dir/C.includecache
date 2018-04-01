@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bigboi69/CLionProjects/clogger_test/clogger.c
+stdio.h
+-
+unistd.h
+-
+string.h
+-
+stdlib.h
+-
+clogger.h
+/home/bigboi69/CLionProjects/clogger_test/clogger.h
+
+/home/bigboi69/CLionProjects/clogger_test/clogger.h
+stdio.h
+-
+
+/home/bigboi69/CLionProjects/clogger_test/main.c
+stdio.h
+-
+clogger.h
+/home/bigboi69/CLionProjects/clogger_test/clogger.h
+

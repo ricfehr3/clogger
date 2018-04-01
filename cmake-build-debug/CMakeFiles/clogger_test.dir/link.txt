@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/clogger_test.dir/main.c.o CMakeFiles/clogger_test.dir/clogger.c.o  -o clogger_test 

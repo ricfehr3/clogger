@@ -1,0 +1,3 @@
+/home/bigboi69/CLionProjects/clogger_test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/bigboi69/CLionProjects/clogger_test/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bigboi69/CLionProjects/clogger_test/cmake-build-debug/CMakeFiles/clogger_test.dir
