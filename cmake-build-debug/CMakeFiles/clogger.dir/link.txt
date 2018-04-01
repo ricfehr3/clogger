@@ -1,0 +1,2 @@
+/usr/bin/ar qc libclogger.a  CMakeFiles/clogger.dir/clogger.c.o
+/usr/bin/ranlib libclogger.a
