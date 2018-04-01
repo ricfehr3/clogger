@@ -81,7 +81,7 @@
 		<Unit filename="/home/bigboi69/CLionProjects/clogger/clogger.c">
 			<Option target="clogger"/>
 		</Unit>
-		<Unit filename="/home/bigboi69/CLionProjects/clogger/clogger.h">
+		<Unit filename="/home/bigboi69/CLionProjects/clogger/include/clogger.h">
 			<Option target="clogger"/>
 		</Unit>
 		<Unit filename="/home/bigboi69/CLionProjects/clogger/CMakeLists.txt">

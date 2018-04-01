@@ -3,4 +3,4 @@ project(clogger C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_library(clogger clogger.c clogger.h)
+add_library(clogger clogger.c include/clogger.h)

@@ -16,6 +16,7 @@ typedef struct tag_Log {
     void (*debug)(char*);
     void (*warn)(char*);
     void (*error)(char*);
+    char* file;
 } Log;
 
 int initializeLogger(Log*, MODE);

@@ -15,10 +15,12 @@ string.h
 -
 stdlib.h
 -
-clogger.h
-/home/bigboi69/CLionProjects/clogger/clogger.h
+time.h
+-
+include/clogger.h
+/home/bigboi69/CLionProjects/clogger/include/clogger.h
 
-/home/bigboi69/CLionProjects/clogger/clogger.h
+/home/bigboi69/CLionProjects/clogger/include/clogger.h
 stdio.h
 -
 

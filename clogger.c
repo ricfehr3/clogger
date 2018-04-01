@@ -2,7 +2,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include "clogger.h"
+#include <time.h>
+#include "include/clogger.h"
 
 /*
  * This process_string function should not have any memory leaks.
@@ -19,41 +20,51 @@ char* process_string(char* str) {
 
 static MODE mode;
 
+// gets current time for logger, returns string in HH:MM:SS format
+char* getCurrentTime() {
+    time_t mytime;
+    struct tm* timeinfo;
+
+    time(&mytime);
+    timeinfo = localtime(&mytime);
+    return strtok(asctime(timeinfo), "\n");
+}
+
 // print info to STDOUT
 void info(char* str, ...) {
     str = process_string(str);
-    fprintf(fptr, "[INFO]: %s", str);
+    fprintf(fptr, "%s\t[INFO]: %s", getCurrentTime(), str);
     if (mode == DEBUG_ALL || mode == RELEASE_ALL) {
-        printf("[INFO]: %s", str);
+        printf("%s\t[INFO]: %s", getCurrentTime(), str);
     }
 }
 
 void debug(char* str, ...) {
     str = process_string(str);
     if((mode == DEBUG_ALL) || (mode == DEBUG_FILE)) {
-        fprintf(fptr, "[DEBUG]: %s", str);
+        fprintf(fptr, "%s\t[DEBUG]: %s", getCurrentTime(), str);
         if (mode == DEBUG_ALL) {
-            printf("[DEBUG]: %s", str);
+            printf("%s\t[DEBUG]: %s", getCurrentTime(), str);
         }
     }
 }
 
 void warn(char* str, ...) {
     str = process_string(str);
-    fprintf(fptr, "[WARNING]: %s", str);
+    fprintf(fptr, "%s\t[WARNING]: %s", getCurrentTime(), str);
     if((mode == DEBUG_ALL) || (mode == RELEASE_ALL)) {
         printf("\e[1;36m"); // cyan
-        printf("[WARNING]: %s", str);
+        printf("%s\t[WARNING]: %s", getCurrentTime(), str);
         printf("\e[0m"); // normal
     }
 }
 
 void error(char* str, ...) {
     str = process_string(str);
-    fprintf(fptr, "[ERROR]: %s", str);
+    fprintf(fptr, "%s\t[ERROR]: %s", getCurrentTime(), str);
     if((mode == DEBUG_ALL) || (mode == RELEASE_ALL)) {
         printf("\e[1;31m"); // red
-        printf("[ERROR]: %s", str);
+        printf("%s\t[ERROR]: %s", getCurrentTime(), str);
         printf("\e[0m"); // normal
     }
 }
@@ -75,6 +86,9 @@ int initializeLogger(Log* log, MODE initmode) {
     // open file
     fptr = fopen(logstr, "w+");
 
+    // Print Header
+    fprintf(fptr, "%s at %s:\n", __DATE__, __TIME__);
+
     // point to correct functions
     log->info = info;
     log->debug = debug;
@@ -90,5 +104,4 @@ int initializeLogger(Log* log, MODE initmode) {
 #endif
 }
 
-// TODO: make this a static library
-// TODO: make varible number of arguments for info, warn, and error
+// TODO: make variable number of arguments for info, warn, and error
